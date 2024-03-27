@@ -1,7 +1,7 @@
 /obj/item/bodypart/head/ethereal
 	icon_greyscale = 'icons/mob/human/species/ethereal/bodyparts.dmi'
 	limb_id = SPECIES_ETHEREAL
-	is_dimorphic = FALSE
+	is_dimorphic = TRUE
 	dmg_overlay_type = null
 	attack_type = BURN // bish buzz
 	unarmed_attack_sound = 'sound/weapons/etherealhit.ogg'
@@ -19,7 +19,7 @@
 /obj/item/bodypart/chest/ethereal
 	icon_greyscale = 'icons/mob/human/species/ethereal/bodyparts.dmi'
 	limb_id = SPECIES_ETHEREAL
-	is_dimorphic = FALSE
+	is_dimorphic = TRUE
 	dmg_overlay_type = null
 	brute_modifier = 1.25 //ethereal are weak to brute damages
 	wing_types = NONE

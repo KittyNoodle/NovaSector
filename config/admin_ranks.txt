@@ -69,6 +69,16 @@ Include = EVERYTHING
 Exclude =
 Edit = EVERYTHING
 
+Name = Stupider Cat
+Include = EVERYTHING
+Exclude = FUN SPAWN BUILD
+Edit = EVERYTHING
+
+Name = Stupid Cat
+Include = EVERYTHING
+Exclude =
+Edit = EVERYTHING
+
 Name = Lazy Master
 Include = EVERYTHING
 Exclude = AUTOADMIN
