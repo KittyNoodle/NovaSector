@@ -37,7 +37,6 @@
 	desc = "A durable looking window made archonic crystal."
 	max_integrity = 600
 	explosion_block = 50
-	armor = list("melee" = 100, "bullet" = 100, "laser" = 100, "energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | LAVA_PROOF
 
 /obj/item/eter_violet
@@ -93,7 +92,6 @@
 	explosion_block = 3
 	heat_proof = TRUE
 	max_integrity = 600
-	armor = list("melee" = 100, "bullet" = 100, "laser" = 100, "energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | LAVA_PROOF
 	damage_deflection = 70
 	var/owner_name = "Crux CF"
@@ -101,7 +99,7 @@
 /obj/machinery/door/namedoor/Bumped(atom/movable/AM)
 	return !density && ..()
 
-/obj/machinery/door/namedoor/try_to_activate_door(mob/user)
+/obj/machinery/door/namedoor/try_to_activate_door(mob/user, access_bypass = FALSE)
 	add_fingerprint(user)
 	if(operating)
 		return
@@ -134,25 +132,31 @@
 			//Deny animation would be nice to have.
 			playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
 
-
 /obj/projectile/beam/archonic/death
-	name = "archonic annihilation beam"
-	impact_effect_type = /obj/effect/temp_visual/impact_effect/red_laser
-	light_color = "#ff1a75"
+	damage = 300
 	hitscan = TRUE
-	tracer_type = /obj/effect/projectile/tracer/archonic
-	muzzle_type = /obj/effect/projectile/muzzle/archonic
-	impact_type = /obj/effect/projectile/impact/archonic
-	damage = 1000
+	muzzle_type = /obj/effect/projectile/muzzle/laser/emitter
+	tracer_type = /obj/effect/projectile/tracer/laser/emitter
+	impact_type = /obj/effect/projectile/impact/laser/emitter
+	impact_effect_type = null
+	light_color = "#80002A"
+	hitscan_light_intensity = 3
+	hitscan_light_range = 0.75
+	hitscan_light_color_override = "#80002A"
+	muzzle_flash_intensity = 6
+	muzzle_flash_range = 2
+	muzzle_flash_color_override = "#80002A"
+	impact_light_intensity = 7
+	impact_light_range = 2.5
+	impact_light_color_override = "#80002A"
 
-/obj/projectile/beam/archonic/death/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/beam/archonic/death/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
-	//new /obj/effect/temp_visual/archous_flash/huge/fading(get_turf(target))
-	if(isliving(target)) //if the target isn't alive, so is a wall or something
-		var/mob/living/M = target
-		M.archonic_flash()
-		M.dust()
-	explosion(target, 2, 3, 4, 7)
+	if(isliving(target))
+		var/mob/living/L = target
+		L.archonic_flash()
+		L.dust(TRUE, TRUE)
+	explosion(target, heavy_impact_range = 2, light_impact_range = 3, flame_range = 3, flash_range = 4, explosion_cause = src)
 
 
 /obj/effect/projectile/impact/archonic

@@ -3337,6 +3337,7 @@
 #include "code\modules\antagonists\wizard\grand_ritual\finales\immortality.dm"
 #include "code\modules\antagonists\wizard\grand_ritual\finales\midas.dm"
 #include "code\modules\antagonists\xeno\xeno.dm"
+#include "code\modules\archonic\archonic.dm"
 #include "code\modules\archonic\hardlight.dm"
 #include "code\modules\archonic\reactor.dm"
 #include "code\modules\archonic\shitpest.dm"
