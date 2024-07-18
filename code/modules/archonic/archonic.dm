@@ -21,7 +21,6 @@
 	lefthand_file = 'code/modules/archonic/icons/inhands/lefthand.dmi'
 	righthand_file = 'code/modules/archonic/icons/inhands/righthand.dmi'
 	sharpness = SHARP_EDGED
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 100)
 	force = 30
 	throwforce = 250
 	wound_bonus = 0
@@ -42,8 +41,8 @@
 /obj/item/spear/archous/proc/on_wield(obj/item/source, mob/user)
 	SIGNAL_HANDLER
 	sharpness = SHARP_POINTY
-	attack_verb_continuous = list("stabs, jabs, impales, penetrates, preforates")
-	attack_verb_simple = list("stab, jab, impale, penetrate, preforate")
+	attack_verb_continuous = list("stabs", "jabs", "impales", "penetrates", "preforates")
+	attack_verb_simple = list("stab", "jab", "impale", "penetrate", "preforate")
 	wielded = TRUE
 
 /// triggered on unwield of two handed item
