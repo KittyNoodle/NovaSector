@@ -194,7 +194,7 @@
 		else
 			close()
 	else if(density)
-		do_animate("deny")
+		run_animation(DOOR_DENY_ANIMATION)
 
 /obj/machinery/door/namedoor/update_icon_state()
 	. = ..()
@@ -205,15 +205,13 @@
 		return TRUE
 	return FALSE
 
-/obj/machinery/door/namedoor/do_animate(animation)
+/obj/machinery/door/namedoor/animation_effects(animation)
 	switch(animation)
-		if("opening")
-			flick("opening", src)
+		if(DOOR_OPENING_ANIMATION)
 			playsound(src, 'sound/machines/blastdoor.ogg', 30, TRUE)
-		if("closing")
-			flick("closing", src)
+		if(DOOR_CLOSING_ANIMATION)
 			playsound(src, 'sound/machines/blastdoor.ogg', 30, TRUE)
-		if("deny")
+		if(DOOR_DENY_ANIMATION)
 			//Deny animation would be nice to have.
 			playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
 
