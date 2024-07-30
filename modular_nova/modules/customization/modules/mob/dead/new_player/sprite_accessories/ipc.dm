@@ -290,6 +290,26 @@
 	name = "Mariinsky Ballet Company"
 	icon_state = "mariinsky"
 
+/datum/sprite_accessory/synth_chassis/cybersun_industries_adlr
+
+	name = "Cybersun Industries 'Eagle'"
+	icon_state = "cieipc"
+
+/datum/sprite_accessory/synth_chassis/cybersun_industries_lstr
+
+	name = "Cybersun Industries 'Magpie'"
+	icon_state = "cilipc"
+
+/datum/sprite_accessory/synth_chassis/cybersun_industries_arar
+
+	name = "Cybersun Industries 'Macaw'"
+	icon_state = "cimipc"
+
+/datum/sprite_accessory/synth_chassis/cybersun_industries_flkr
+
+	name = "Cybersun Industries 'Falcon'"
+	icon_state = "cifipc"
+
 //Heads - snowflake phantom accessory for choosing IPC heads (hell yeah!)
 /datum/sprite_accessory/synth_head
 	/// Boolean for if this is actually dimorphic.
@@ -383,4 +403,9 @@
 /datum/sprite_accessory/synth_head/mariinsky
 	name = "Mariinsky Ballet Company"
 	icon_state = "mariinsky"
+	color_src = MUTANT_COLOR
+
+/datum/sprite_accessory/synth_head/cybersun_industries
+	name = "Cybersun Industries"
+	icon_state = "cshead"
 	color_src = MUTANT_COLOR
