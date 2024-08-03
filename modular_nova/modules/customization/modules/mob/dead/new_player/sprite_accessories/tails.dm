@@ -30,7 +30,7 @@
 /datum/sprite_accessory/tails/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
-	recommended_species = list(SPECIES_SYNTH, SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_HUMANOID, SPECIES_GHOUL)
+	recommended_species = list(SPECIES_SYNTH, SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_HUMANOID, SPECIES_GHOUL, SPECIES_ETHEREAL)
 	color_src = null
 	factual = FALSE
 

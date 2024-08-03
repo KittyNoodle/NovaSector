@@ -196,7 +196,7 @@
 	. = ..()
 	var/mob/living/carbon/human/affected_human = quirk_holder
 	ADD_TRAIT(affected_human, TRAIT_MASOCHISM, TRAIT_LEWDQUIRK)
-	affected_human.pain_limit = 60
+	affected_human.pain_limit = 65
 
 /datum/quirk/masochism/remove()
 	. = ..()
@@ -265,7 +265,7 @@
 /datum/brain_trauma/very_special/sadism/on_life(seconds_per_tick, times_fired)
 	var/mob/living/carbon/human/affected_mob = owner
 	if(!owner.has_status_effect(/datum/status_effect/climax_cooldown) && affected_mob.client?.prefs?.read_preference(/datum/preference/toggle/erp) && someone_suffering())
-		affected_mob.adjust_arousal(2)
+		affected_mob.adjust_arousal(1)
 		owner.add_mood_event("sadistic", /datum/mood_event/sadistic)
 	else
 		owner.clear_mood_event("sadistic")
@@ -280,7 +280,7 @@
 			continue
 		if(iterated_mob.stat == DEAD) //don't count dead targets either
 			continue
-		if(iterated_mob.pain >= 10)
+		if(iterated_mob.pain >= 35)
 			return TRUE
 	return FALSE
 

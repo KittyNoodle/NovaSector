@@ -34,6 +34,11 @@
 	if(!.) // If true, horns already hidden
 		return lewd_is_hidden(target_human)
 
+/datum/sprite_accessory/ethereal_horns/is_hidden(mob/living/carbon/human/target_human)
+	. = ..()
+	if(!.) // If true, horns already hidden
+		return lewd_is_hidden(target_human)
+
 // Extends default proc check for hidden antenna for supporting our sleepbag and catsuit too
 /datum/sprite_accessory/antenna/is_hidden(mob/living/carbon/human/target_human)
 	. = ..()

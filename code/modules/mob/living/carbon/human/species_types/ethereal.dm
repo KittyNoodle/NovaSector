@@ -3,9 +3,13 @@
 	id = SPECIES_ETHEREAL
 	meat = /obj/item/food/meat/slab/human/mutant/ethereal
 	mutantlungs = /obj/item/organ/internal/lungs/ethereal
+	mutanteyes = /obj/item/organ/internal/eyes/ethereal
 	mutantstomach = /obj/item/organ/internal/stomach/ethereal
 	mutanttongue = /obj/item/organ/internal/tongue/ethereal
 	mutantheart = /obj/item/organ/internal/heart/ethereal
+	external_organs = list(
+		/obj/item/organ/external/ethereal_horns = "None",
+		/obj/item/organ/external/tail/ethereal = "None")
 	exotic_blood = /datum/reagent/consumable/liquidelectricity //Liquid Electricity. fuck you think of something better gamer
 	exotic_bloodtype = "LE"
 	siemens_coeff = 0.5 //They thrive on energy
@@ -15,7 +19,6 @@
 		TRAIT_MUTANT_COLORS,
 		TRAIT_FIXED_MUTANT_COLORS,
 		TRAIT_FIXED_HAIRCOLOR,
-		TRAIT_AGENDER,
 	)
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT
 	species_cookie = /obj/item/food/energybar
@@ -27,8 +30,8 @@
 	// Cold temperatures hurt faster as it is harder to move with out the heat energy
 	bodytemp_cold_damage_limit = (T20C - 10) // about 10c
 	hair_color_mode = USE_FIXED_MUTANT_COLOR
-	hair_alpha = 140
-	facial_hair_alpha = 140
+	hair_alpha = 180
+	facial_hair_alpha = 180
 
 	bodypart_overrides = list(
 		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/ethereal,
@@ -99,19 +102,33 @@
 				built_color += skin_color[i] + ((colors[i] - skin_color[i]) * healthpercent)
 			current_color = rgb(built_color[1], built_color[2], built_color[3])
 
-		ethereal_light.set_light_range_power_color(1 + (2 * healthpercent), 1 + (1 * healthpercent), current_color)
+		ethereal_light.set_light_range_power_color(1 + (1.5 * healthpercent), 1 + round(0.5 * healthpercent), current_color)
 		ethereal_light.set_light_on(TRUE)
 		fixed_mut_color = current_color
 		ethereal.update_body()
 		ethereal.set_facial_haircolor(current_color, override = TRUE, update = FALSE)
 		ethereal.set_haircolor(current_color, override = TRUE,  update = TRUE)
+		if(ethereal.organs_slot["horns"])
+			var/obj/item/organ/external/horms = ethereal.organs_slot["horns"]
+			horms.bodypart_overlay.draw_color = list(current_color)
+		if(ethereal.organs_slot["tail"])
+			var/obj/item/organ/external/tail = ethereal.organs_slot["tail"]
+			tail.bodypart_overlay.draw_color = list(current_color)
 	else
 		ethereal_light.set_light_on(FALSE)
-		var/dead_color = rgb(128,128,128)
-		fixed_mut_color = dead_color
+		var/dead_color = rgb(255, 255, 255)
+		current_color = dead_color
+		fixed_mut_color = current_color
 		ethereal.update_body()
 		ethereal.set_facial_haircolor(dead_color, override = TRUE, update = FALSE)
 		ethereal.set_haircolor(dead_color, override = TRUE, update = TRUE)
+		if(ethereal.organs_slot["horns"])
+			var/obj/item/organ/external/horms = ethereal.organs_slot["horns"]
+			horms.bodypart_overlay.draw_color = list(dead_color)
+		if(ethereal.organs_slot["tail"])
+			var/obj/item/organ/external/tail = ethereal.organs_slot["tail"]
+			tail.bodypart_overlay.draw_color = list(dead_color)
+	ethereal.update_body()
 
 /datum/species/ethereal/proc/on_emp_act(mob/living/carbon/human/source, severity, protection)
 	SIGNAL_HANDLER

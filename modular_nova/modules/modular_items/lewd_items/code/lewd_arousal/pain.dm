@@ -21,8 +21,10 @@
 			try_lewd_autoemote(pick("scream", "shiver")) //SCREAM!!!
 
 	else if(HAS_TRAIT(src, TRAIT_MASOCHISM))
-		if(change_amount > 0)
-			adjust_arousal(change_amount)
-		adjust_pleasure(change_amount / 2)
+		if(!combat_mode && fire_stacks < 1)
+			if(change_amount > 0)
+				adjust_arousal(change_amount)
+			adjust_pleasure(change_amount / 2)
+			change_amount = (change_amount/1.2)
 
 	pain = clamp(pain + change_amount, AROUSAL_MINIMUM, AROUSAL_LIMIT)

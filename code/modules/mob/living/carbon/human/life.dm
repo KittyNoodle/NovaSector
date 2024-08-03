@@ -46,6 +46,11 @@
 
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()
+	if(pain > 65)
+		adjust_pain(-1.0)
+	if(pain > 45)
+		adjust_pain(-0.6)
+	adjust_pain(-0.4)
 
 	if(stat != DEAD)
 		return TRUE

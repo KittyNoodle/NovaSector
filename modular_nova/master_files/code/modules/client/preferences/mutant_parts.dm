@@ -229,6 +229,17 @@
 	relevant_mutant_bodypart = "horns"
 	type_to_check = /datum/preference/toggle/mutant_toggle/horns
 
+// Ethereal Horns
+/datum/preference/toggle/mutant_toggle/ethereal_horns
+	savefile_key = "ethereal_horns_toggle"
+	relevant_mutant_bodypart = "ethereal_horns"
+
+/datum/preference/choiced/mutant_choice/ethereal_horns
+	savefile_key = "feature_ethereal_horns"
+	relevant_mutant_bodypart = "ethereal_horns"
+	type_to_check = /datum/preference/toggle/mutant_toggle/ethereal_horns
+	default_accessory_type = /datum/sprite_accessory/ethereal_horns/none
+
 /// Ears
 
 /datum/preference/toggle/mutant_toggle/ears

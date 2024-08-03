@@ -112,7 +112,7 @@
 //Being on fire will suppress this healing
 /datum/status_effect/fleshmend
 	id = "fleshmend"
-	duration = 10 SECONDS
+	duration = 20 SECONDS
 	alert_type = /atom/movable/screen/alert/status_effect/fleshmend
 	show_duration = TRUE
 
@@ -140,9 +140,9 @@
 		return
 
 	var/need_mob_update = FALSE
-	need_mob_update += owner.adjustBruteLoss(-4 * seconds_between_ticks, updating_health = FALSE)
-	need_mob_update += owner.adjustFireLoss(-2 * seconds_between_ticks, updating_health = FALSE)
-	need_mob_update += owner.adjustOxyLoss(-4 * seconds_between_ticks, updating_health = FALSE)
+	need_mob_update += owner.adjustBruteLoss(-5 * seconds_between_ticks, updating_health = FALSE)
+	need_mob_update += owner.adjustFireLoss(-3 * seconds_between_ticks, updating_health = FALSE)
+	need_mob_update += owner.adjustOxyLoss(-5 * seconds_between_ticks, updating_health = FALSE)
 	if(need_mob_update)
 		owner.updatehealth()
 

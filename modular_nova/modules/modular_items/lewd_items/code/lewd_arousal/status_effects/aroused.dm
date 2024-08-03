@@ -1,13 +1,13 @@
 #define AUTO_EMOTE_CHANCE 3
 
-#define MASOCHISM_PAIN_OFFSET 0.5
+#define MASOCHISM_PAIN_OFFSET -0.1
 #define NEVERBONER_PLEASURE_OFFSET 50
 
 #define BLUEBALL_AROUSAL_MODIFIER 0.08
 #define TOO_MUCH_PAIN_MODIFIER 0.1
 #define ITS_PRETTY_HOT_IN_HERE_MODIFIER 0.1
 
-#define BASE_AROUSAL_ADJUSTMENT -0.1
+#define BASE_AROUSAL_ADJUSTMENT -0.2
 #define BASE_PAIN_AND_PLEASURE_ADJUSTMENT -0.5
 
 /datum/status_effect/aroused
@@ -23,7 +23,7 @@
 	var/mob/living/carbon/human/affected_mob = owner
 	var/temp_arousal = BASE_AROUSAL_ADJUSTMENT
 	var/temp_pleasure = BASE_PAIN_AND_PLEASURE_ADJUSTMENT
-	var/temp_pain = BASE_PAIN_AND_PLEASURE_ADJUSTMENT
+	var/temp_pain = BASE_PAIN_AND_PLEASURE_ADJUSTMENT+0.4
 
 	var/obj/item/organ/external/genital/testicles/balls = affected_mob.get_organ_slot(ORGAN_SLOT_TESTICLES)
 	if(balls && balls.internal_fluid_full())

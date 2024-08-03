@@ -774,3 +774,6 @@
 /obj/item/organ/internal/eyes/night_vision/maintenance_adapted/on_mob_remove(mob/living/carbon/unadapted, special = FALSE)
 	REMOVE_TRAIT(unadapted, TRAIT_UNNATURAL_RED_GLOWY_EYES, ORGAN_TRAIT)
 	return ..()
+
+/obj/item/organ/internal/eyes/ethereal
+	eye_icon_state = "etherealeyes"

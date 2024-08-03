@@ -266,6 +266,20 @@ export const horns_emissive: Feature<boolean[]> = {
   component: FeatureTriBoolInput,
 };
 
+export const ethereal_horns_toggle: FeatureToggle = {
+  name: 'Ethereal Horns',
+  component: CheckboxInput,
+};
+
+export const feature_ethereal_horns: Feature<string> = {
+  name: 'Ethereal Horns Selection',
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
+};
+
 export const ears_toggle: FeatureToggle = {
   name: 'Ears',
   component: CheckboxInput,

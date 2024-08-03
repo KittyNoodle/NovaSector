@@ -36,13 +36,13 @@
 	/// The timerid for our sign language tonal indicator.
 	var/tonal_timerid
 	/// Any symbols to sanitize from signed messages.
-	var/regex/omissions = new ("\[!?\]", "g")
+	//var/regex/omissions = new ("\[!?\]", "g")
 	/// The action for toggling sign language.
 	var/datum/action/innate/sign_language/linked_action
 
 /// Replace specific characters in the input string with periods.
-/datum/component/sign_language/proc/sanitize_message(input)
-	return replacetext(input, omissions, ".")
+///datum/component/sign_language/proc/sanitize_message(input)
+	//return replacetext(input, omissions, ".")
 
 /datum/component/sign_language/Initialize()
 	// Non-Carbon mobs can't use sign language.
@@ -238,7 +238,7 @@
 	return SPELL_INVOCATION_ALWAYS_SUCCEED
 
 /// Signal proc for [COMSIG_LIVING_TREAT_MESSAGE]
-/// Changes our message based on conditions that limit or alter our ability to communicate 
+/// Changes our message based on conditions that limit or alter our ability to communicate
 /datum/component/sign_language/proc/on_treat_living_message(atom/movable/source, list/message_args)
 	SIGNAL_HANDLER
 
@@ -255,7 +255,7 @@
 /datum/component/sign_language/proc/on_say_quote(atom/movable/source, list/message_args)
 	SIGNAL_HANDLER
 
-	message_args[MOVABLE_SAY_QUOTE_MESSAGE] = sanitize_message(message_args[MOVABLE_SAY_QUOTE_MESSAGE])
+	message_args[MOVABLE_SAY_QUOTE_MESSAGE] = message_args[MOVABLE_SAY_QUOTE_MESSAGE]
 
 /// Signal proc for [COMSIG_MOVABLE_USING_RADIO]
 /// Disallows us from speaking on comms if we don't have the special trait.
@@ -305,7 +305,6 @@
 		emote_tone(carbon_parent, emote_tone)
 
 	// remove the ! and ? symbols from message at the end
-	message = sanitize_message(message)
 	speech_args[SPEECH_MESSAGE] = message
 
 /// Send a visible message depending on the tone of the message that the sender is trying to convey to the world.
