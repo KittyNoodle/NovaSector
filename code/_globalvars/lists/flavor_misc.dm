@@ -20,6 +20,7 @@ GLOBAL_LIST_INIT(color_list_ethereal, list(
 	"White" = "#f2f2f2",
 	"Fuschia" = "#FF0066", //My Addition
 	"Dark Purple" = "#794A7F", //My Addition #78387c 79,18,115 <- 120,56,124    GOAL: 80,42,119 <- 121, 74, 127
+	"Grey" = "#73645F", //My Addition #505050 98,90,89 <- 115, 100, 95 OFFSET: 55,30,25   GOAL: 80,80,80 <- 135, 110, 105
 ))
 
 GLOBAL_LIST_INIT(color_list_lustrous, list(

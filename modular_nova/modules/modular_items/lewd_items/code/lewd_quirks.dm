@@ -280,6 +280,8 @@
 			continue
 		if(iterated_mob.stat == DEAD) //don't count dead targets either
 			continue
+		if(iterated_mob == owner)
+			continue
 		if(iterated_mob.pain >= 35)
 			return TRUE
 	return FALSE
